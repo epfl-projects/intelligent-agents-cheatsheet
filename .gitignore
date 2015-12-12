@@ -22,7 +22,10 @@
 *.mtc1
 *.out
 *.synctex.gz
+*.fdb_latexmk
+*.fls
 *~
 
 # Compiled output
 *.pdf
+
