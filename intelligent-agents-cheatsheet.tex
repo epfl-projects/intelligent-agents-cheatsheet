@@ -65,9 +65,18 @@ TODO: definition, stateless / stateful behavior, purely reactive decisions, futu
 % ----------
 \section{Deliberative agents}
 
-TODO: plannings, encoding of plans, utility, search algorithms (DFS, BFS, minimax, iterative deepening, Monte-Carlo search), notion of regret, multi-armed bandit.
+\concept{Deliberative architecture}: explicit representation of goal states and plans. Considers only the subset of states that may be visited.
+\concept{Search algorithms}: DFS (too much time spent in unpromising branches), BFS (too much memory usage), Iterative Deepening (DFS + depth limit), Branch and Bound (ignore nodes with higher cost than best found so far). With adversary: minimax, $\alpha-\beta$ pruning.
+\concept{Regret}: difference in outcome between playing move $i$ and the optimal move. In games with chance, minimize expected regret or worst-case regret.
+Big / chance games: evaluate horizon states with a \subconcept{heuristic} and / or \subconcept{Monte-Carlo sampling}.
+\concept{Upper Confidence Bound} for game trees: minimax over $UCB_i = \frac{\text{wins}_i}{N_i} + c \sqrt{\frac{\log{N}}{N_i}}$ ($c$: exploration parameter).
 
-TODO: factored representations, Bayesian networks, policy iteration with factored representation, operators (situation calculus), least commitment, planning as a SAT problem.
+\concept{Factored representation}: circumvent state space explosion by modeling state features as predicates. Use \subconcept{situation calculus}: operators transform predicates (preconditions, add-list, delete-list). \subconcept{Frame axioms} carry over predicates that were not modified.
+\subconcept{Policy} and \subconcept{reward functions} should be factored. More difficult: factoring the estimate \subconcept{value} of a state (use basis functions).
+\concept{Leat-commitment principle}: delay commitment to the order in which actions are taken (modulo dependencies). Determine policy by fixpoint iteration (basis functions: solve for weights that minimize the error of the value function recurrence $\equiv$ least squares).
+\concept{Partial-order planning}: discover which actions can be carried out in parallel.
+\subconcept{GraphPlan} builds layers (time) with nodes (proposition and actions) and directed edges (in: preconditions, out: add-list). Built in polynomial time, not exhaustive but complete.
+\concept{SAT}: goal state search can be encoded as a CSP. State $=$ vector of state variables (each with a domain), add constraints for: pre and post-conditions for operators, incompatible propositions, exclusion for operators using the same resource. Time is broken up into $2n$ discreet points (states, actions).
 
 % ----------
 \section{Multiagent systems}
