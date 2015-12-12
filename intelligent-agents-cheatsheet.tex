@@ -89,7 +89,12 @@ TODO: cooperation in games, correlated equilibria, mediators, negotiation protoc
 
 \subsection{Mechanism design}
 
-TODO: definition of mechanisms, Arrow's theorem (not really applicable), truthfulness, \textbf{Revelation principle}, \textbf{VCG tax} (implementation and its properties), generalized VCG mechanisms.
+\concept{Social choice}: constructing a joint preference order reflecting individual, private orderings. Implementations: dominant equilibrium, Bayes-Nash equilibrium.
+\concept{Mechanisms}: social choice function $+$ payment rule. Goal: \subconcept{incentive compatibility} (best strategy for agents leads to optimizing the social choice function).
+\concept{Revelation principle}: for any mechanism, there is a truthful mechanism with the same outcomes and payments (proof by construction).
+\concept{VCG tax}: maximizes the sum of declared valuations. $\text{tax}(A_i) = \sum_{A_{j \neq i}} v_j(d_{-i}) - v_j(d_{\text{all}})$. It is truthful, rational and incentive compatible. Generalization: \subconcept{Groves mechanism} $\approx$ VCG with offset (e.g. refund part of the tax). Problems: collusions, not Pareto-efficient (tax must be wasted).
+\concept{Roberts' theorem}: affine maximizer social choice functions are the only ones that can be implemented for unrestricted preference profiles with incentive compatibility.
+\concept{Median rule}: IC for single-peaked preferences.
 
 \subsection{Auctions}
 
