@@ -25,7 +25,7 @@
 \newcommand{\btheta}{\boldsymbol\theta}
 \newcommand{\bPhi}{\boldsymbol\Phi}
 \newcommand{\concept}[1]{\textcolor{Emerald}{#1}} % SeaGreen, SkyBlue, Emerald, Cerulean, CadetBlue
-\newcommand{\subconcept}[1]{\textit{#1}}
+\newcommand{\subconcept}[1]{\textcolor{CadetBlue}{\textit{#1}}}
 
 \pdfinfo{
   /Title (Intelligent Agents Cheatsheet)
@@ -81,7 +81,14 @@ TODO: social laws, marginal cost, planning as SAT (i.e. Constraint Satisfaction 
 % ----------
 \section{Game theory}
 
-TODO: self-interested agents, games (representations, normal form), zero-sum vs general-sum, dominant / pure / mixed / minimax strategies, (conditionally) dominated actions, Nash / Bayes-Nash / ex-post equilibria, utility theory, generalization to N-player games, games with uncertain utilities,
+\concept{Games}: zero / general sum, 2 / $N$ players.
+\concept{Strategies}: strictly / (very) weakly dominant, pure, mixed, \subconcept{minimax} (for zero-sum: \subconcept{value} of the game $=$ expected gain $v_A$ $=$ expected loss $v_B$). Computing minimax for B: find set of $p_i^B$ such that expected gain $v$ of A is minimized and $\forall a_i^A, \sum_{a_j^B} p_j^B R_A(a_i^A, a_j^B) \leq v$.
+\concept{Utility function}: can encode risk-profile.
+\concept{Support}: set of actions with $p_a > 0$.
+\concept{Nash equilibria}: no player gains from changing strategy, all other things being equal. Theorem: every game has at least a set of (mixed) NE. Compute them by removing dominated actions and going through possible subsets of actions (\subconcept{supports}). For $N$ players, NE exists but not necessarily unique or minimax.
+\concept{Uncertain utilities}: \subconcept{ex-ante} (no knowledge at all), \subconcept{ex-interim} (own agent type is known), \subconcept{ex-post} (strongest, knowledge of all types).
+\concept{Bayes-NE}: NE over ex-ante expected utilities.
+\concept{Ex-post NE}: strategies give highest utility no matter the value of the unknown information (not always possible).
 
 \subsection{Agent cooperation, negotiation}
 
