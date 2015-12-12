@@ -99,13 +99,22 @@ TODO: vulnerability to collusion, multi-units / combinatorial  auctions, truthfu
 
 TODO: double (two-way) auctions (clearing rules, incentive-compatibility), quotes, bargaining, sequential auctions (limitations), sunk-aware bidding, GVA (manipulable), procurement auctions, internet ads (GSP auctions).
 
-\subsection{Coallitions}
+\subsection{Coalitions}
 
-TODO: cooperative games, types of coalitions, coalition stability, ``core'' of a game, Shapley value.
+\concept{Coalitions}: when \subconcept{side-contracts} (utility redistribution) are allowed, coalition utility $geq$ others $\implies$ stable.
+\concept{Core} of a game: set of payoff distributions for which the grand coalition is stable (often empty).
+Core is known to be nonempty for \subconcept{Superadditive} and \subconcept{Convex} games ($v(S \cup T) \geq v(S) + v(T) - v(S \cap T)$).
+\concept{Shapley value}: unique vector (if core is nonempty, SV payoffs is in it). $SV(a_i) = $ average value of added payoff when added that agent to a sub-coalition (over all orders). Agents not in any carrier coalitions has $SV(a_i) = 0$.
+\concept{Weighted graph games}: agents are odes, self-edges are payoffs, edges are payoffs for 2-coalitions (not possible for all games). Value of a coalition is the sum of edge weights in the subgraph.
 
-\subsection{Voting}
+\subsection{Voting protocols}
 
-TODO voting protocols (and manipulability), Condorcet winner, Gibbard-Satterthwaite theorem,
+\concept{Manipulability}: non-truthful voting; removing a candidate can reverse the order; vote organizer can determine the winner by changing the order in which alternatives are presented.
+\concept{Condorcet winner}: alternative that beats (or ties) all others in a pairwise majority vote (doesn't always exist; in a majority graph, it is the node with only outgoing edges).
+\concept{Plurality voting}: vote for your single preferred alternative (variant: carry out $n - 1$ rounds, eliminate the least preferred at each round).
+\concept{Borda count}: give $(n - 1) \dots 0$ points to alternatives.
+\concept{Slater ranking}: vote between every pair of alternatives, pick the smallest transformation to obtain a majority graph.
+\concept{Gibbard-Satterthwaite theorem}: any deterministic voting protocol ($\geq 3$ alternatives) has one of these properties: dictatorial, non-truthful, or some candidate cannot win.
 
 % ---------- Page break
 \newpage
