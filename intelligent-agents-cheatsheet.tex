@@ -60,7 +60,15 @@
 % ----------
 \section{Reactive agents}
 
-TODO: definition, stateless / stateful behavior, purely reactive decisions, future rewards, value / policy iteration algorithms, partial knowledge / state belief, Markov Decision Process.
+\concept{Reactive policy} (strategy): simple state $\rightarrow$ response mapping (may be \subconcept{stateful}). Good for realtime.
+\concept{Subsumption architecture} manages conflicting behaviors.
+Strategy is computed from the \concept{reward} and \concept{transition} functions to maximize immediate \textit{and} future rewards.
+\concept{Decision process}: describes knowledge of rewards \& transitions. \subconcept{Markov}: nondeterministic transitions; \subconcept{partially observable MDP}: state is uncertain; \subconcept{Q-learning}: transitions and rewards are not known.
+\concept{Value} of a state: $V(s_i) = R(s_i, a^*) + \gamma V(T(s_i, a^*))$, $a^*$ the best action, $\gamma$ the \subconcept{discount factor}.
+The \subconcept{value iteration} algorithm (initialize $V_i$ at random, pick best action by trying all, update $V_i$, stop when max update is small) converges to the true value. For MDP, transition function is a probability distribution: take expected value.
+The \subconcept{policy iteration} optimizes over the policy directly by solving for the linear equations of values for the current policy.
+\concept{Q-learning}: need to learn transitions and rewards (exploration / exploitation, use $\alpha(t)$).
+\concept{POMDP} can be converted to deterministic \subconcept{MDP} by replacing state by a \subconcept{belief} function.
 
 % ----------
 \section{Deliberative agents}
