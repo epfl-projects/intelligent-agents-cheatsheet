@@ -83,9 +83,16 @@ TODO: social laws, marginal cost, planning as SAT (i.e. Constraint Satisfaction 
 
 TODO: self-interested agents, games (representations, normal form), zero-sum vs general-sum, dominant / pure / mixed / minimax strategies, (conditionally) dominated actions, Nash / Bayes-Nash / ex-post equilibria, utility theory, generalization to N-player games, games with uncertain utilities,
 
-\subsection{Agent negotiation}
+\subsection{Agent cooperation, negotiation}
 
-TODO: cooperation in games, correlated equilibria, mediators, negotiation protocols (rounds, time constraints, axiomatic negotiation, monotonic concession), Nash bargaining solution, generalization to N-agents games (mixed deals), truthfulness, private information.
+\concept{Correlated equilibrium}: act depending on an external factor (e.g. coin flip).
+\concept{Mediator}: vehicle to enforce a contract. Plays depending on the number of agents which chose the mediator.
+\concept{Negotiation}: make, accept or refuse offers to agree on a joint strategy. \subconcept{Strategic} or \subconcept{axiomatic}.
+\concept{Alternating offers}: broken, first offer has more power. Can introduce time constraints, discount factor.
+\concept{Nash bargaining solution}: maximize the product of utility gains (from \subconcept{conflict deal}), concession is made by deal with lowest product. Mixed strategies: can bargain about probabilities.
+\concept{Monotonic concessions}: reaches NBS. Agent with lowest risk tolerance $\frac{u_i(D_i) - u_i(D_j)}{u_i(D_i) - u_i(D_c)}$ must make an offer.
+
+\concept{Stackelberg games}: decisions in sequence between a leader and a follower.
 
 \subsection{Mechanism design}
 
