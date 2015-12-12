@@ -93,11 +93,17 @@ TODO: definition of mechanisms, Arrow's theorem (not really applicable), truthfu
 
 \subsection{Auctions}
 
-TODO: goal: resource allocation, auction types \& properties (forward, reverse, open / sealed bids, first / second price): English, Dutch, Discriminatory, Vickery, Pareto efficiency, bidding strategies (truthful, optimal, risk).
+\concept{Auctions}: social choice, goals are \subconcept{optimal allocation}, \subconcept{individual rationality}.
+\concept{Values}: \subconcept{private}, \subconcept{common} (entirely dependent on other's value), \subconcept{correlated}.
+\concept{Auction protocols}: open-cry (\subconcept{Dutch}, \subconcept{English}); sealed-bids (\subconcept{Discriminatory}, \subconcept{Vickrey}). Problems: \subconcept{manipulability} (collusion, demand reduction lie), \subconcept{risk-averse} or non-truthful / irrational bidding, \subconcept{timing}, \subconcept{side-constraints} (e.g. procurement), authenticity, privacy.
+\concept{Revenue equivalence theorem}: all 4 settings yield equivalent revenue, but not optimal allocation (not true for \subconcept{correlated values}).
 
-TODO: vulnerability to collusion, multi-units / combinatorial  auctions, truthful information extraction, implementation considerations
-
-TODO: double (two-way) auctions (clearing rules, incentive-compatibility), quotes, bargaining, sequential auctions (limitations), sunk-aware bidding, GVA (manipulable), procurement auctions, internet ads (GSP auctions).
+\concept{Multi-unit Vickrey}: each agent pays the price of the bid it displaced from the set of winning bids.
+\concept{Double auctions}: sort buy \& sell bids in opposing orders, price is last match. $M^{th}$ highest price is incentive-compatible for sellers, $(M+1)^{st}$ for the buyers. \subconcept{McAffee}: price is average of last (sell, buy) bid, but block that one $\implies$ loss of 1 trade but gain incentive compatibility. May bid with \subconcept{price-quantity graphs} (then, sum up curves and match demand).
+\concept{Bargaining}: for 1 buyer and 1 seller, NE at price $0.5 \times (b_1 + b_2)$.
+\concept{Independent English Auctions} ($k$ run in parallel): bidding strategies include \subconcept{straightfoward} (ignore complementarities, bid only for the best combination); \subconcept{sunk-aware} (discout perceved price of won items by some factor since they cannot be returned); \subconcept{price prediction}.
+\concept{GVA auction} ($\approx$ VCG tax): pay for the difference between the best allocations without and with your bid.
+\concept{GSP auction} (internet ads): $i^{th}$ highest bidder pays $(i+1)^{st}$ price to get $i^{th}$ slot (not incentive compatible, but stable prices and high revenue).
 
 \subsection{Coalitions}
 
@@ -105,7 +111,7 @@ TODO: double (two-way) auctions (clearing rules, incentive-compatibility), quote
 \concept{Core} of a game: set of payoff distributions for which the grand coalition is stable (often empty).
 Core is known to be nonempty for \subconcept{Superadditive} and \subconcept{Convex} games ($v(S \cup T) \geq v(S) + v(T) - v(S \cap T)$).
 \concept{Shapley value}: unique vector (if core is nonempty, SV payoffs is in it). $SV(a_i) = $ average value of added payoff when added that agent to a sub-coalition (over all orders). Agents not in any carrier coalitions has $SV(a_i) = 0$.
-\concept{Weighted graph games}: agents are odes, self-edges are payoffs, edges are payoffs for 2-coalitions (not possible for all games). Value of a coalition is the sum of edge weights in the subgraph.
+\concept{Weighted graph games}: agents are nodes, self-edges are payoffs, edges are payoffs for 2-coalitions (not possible for all games). Value of a coalition is the sum of edge weights in the subgraph.
 
 \subsection{Voting protocols}
 
