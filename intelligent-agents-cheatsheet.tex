@@ -27,6 +27,25 @@
 \newcommand{\concept}[1]{\textcolor{Emerald}{#1}} % SeaGreen, SkyBlue, Emerald, Cerulean, CadetBlue
 \newcommand{\subconcept}[1]{\textcolor{CadetBlue}{\textit{#1}}}
 
+% Modifications in order to maximize information density
+\renewcommand{\section}[1]{
+  \vspace{-0.3cm}
+  \begin{center}
+    \color{Bittersweet}
+    \hrulefill{\small~~#1~~}\hrulefill
+  \end{center}
+  \vspace{-0.3cm}
+}
+\renewcommand{\subsection}[1]{\section{#1}}
+% Allows to easily edit out parts that are dispensible
+% TODO: compilation option (long / short version)
+% \def \longversion{}
+\newcommand{\opt}[1]{
+  \ifdefined \longversion #1
+  \else % Nothing
+  \fi
+}
+
 \pdfinfo{
   /Title (Intelligent Agents Cheatsheet)
   /Creator (Merlin Nimier-David)
@@ -53,9 +72,11 @@
 \setlength{\multicolsep}{1pt}
 \setlength{\columnsep}{2pt}
 
-\begin{center}
-\Large{\underline{Intelligent Agents Cheatsheet}}
-\end{center}
+\opt {
+  \begin{center}
+  \Large{Intelligent Agents Cheatsheet}
+  \end{center}
+}
 
 % ----------
 \section{Reactive agents}
