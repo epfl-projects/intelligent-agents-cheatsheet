@@ -119,12 +119,19 @@ Big / chance games: evaluate horizon states with a \subconcept{heuristic} and / 
 Using reactive agents: optimize sum of rewards or each agent optimizes its own (find a NE using policy iteration, but probably not the best one).
 Using deliberative agents: find conflicting resource usages and similar goals.
 \concept{Partial-global planning}: goal tree in which each agent inserts its partial plans (expressed with predicates). Can then reorder actions, exchange tasks.
-\concept{Distributed SAT}: variables (goals), values (actions carried out by agents), constraints (preconditions and resources).
 \concept{Contract net}: cooperation protocol. Managers divide tasks, contractors place bids, contract is made for lowest bid (no negotiation). Tasks can be subcontracted. Market-based variation: managers increase prices until they obtain a solution.
 
 \subsection{Distributed multiagent systems}
 
-TODO: social laws, marginal cost, planning as SAT (i.e. Constraint Satisfaction Problem), centralized / async backtracking, dynamic programming, distributed local search, breakout algorithm
+\concept{Distributed contract nets}: make contracts asynchronously and contact agents directly. Agents try to sub-contract tasks with high \subconcept{marginal cost}. Problems: incremental bidding can't work, impossible to resolve conflict, bidders must speculate on future tasks.
+\concept{Distributed SAT}: variables (tasks), domains (resources that can carry out the task), constraints (timing, preconditions and resources), relations (inequality).
+\opt{
+  Solved using \subconcept{dynamic programming} (eliminate variables by replacing them with constraints), \subconcept{local parallel search} (start randomly, make local changes that reduce the number of violations).
+}
+\concept{Sync backtracking}: each agent extends the partial solution of the previous, allows use of heuristics (async: all in parallel, but exponential number of messages needed).
+\concept{Distributed DP}: organize agents in a rooted tree + backedges. Send \texttt{util} (constraint) messages up, parent decides the best value locally, get \texttt{value} messages down. Variables are collapsed, only local node knowns which value to set.
+\concept{Distributed local search}: start with random assignment, make local change which most reduces the number of conflicts. Neighborhood $=$ variables connected through constraints. Changes can be async as long as there is only 1 change per neighborhood.
+\concept{Breakout algorithm}: extension of min-conflict, assigning \subconcept{dynamic priority} to each constraint. Pick change that reduces most the sum of priorities. All remaining conflicts have priority increased when reaching local minimum, then restart. Termination: when time count is larger than the distance to the furthest agent.
 
 % ----------
 \section{Game theory}
