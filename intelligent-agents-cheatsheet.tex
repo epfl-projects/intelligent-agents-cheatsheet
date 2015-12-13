@@ -110,7 +110,15 @@ Big / chance games: evaluate horizon states with a \subconcept{heuristic} and / 
 % ----------
 \section{Multiagent systems}
 
-TODO: different possible architectures \& types of allowed interactions, cooperative planning \& coordination, self-interested agents, partial-global planning, ontologies (heterogeneous agent systems), contract nets algorithm, market-based contract nets.
+\concept{Multiagent modalities}: centralized with shared memory, centralized or distributed with message passing, decentralized (no communication, but observe common signals).
+\concept{Ontologies}: provides a shared vocabulary for heterogeneous agents.
+\concept{Self-interested} agents: always act to maximize their own interest. We need to create incentives.
+\concept{Centralized planning}: can explicitly detect conflicts and synergy. E.g. \subconcept{blackboard system} (shared memory), \subconcept{publish-subscribe system} (notify on resource usage).
+Using reactive agents: optimize sum of rewards or each agent optimizes its own (find a NE using policy iteration, but probably not the best one).
+Using deliberative agents: find conflicting resource usages and similar goals.
+\concept{Partial-global planning}: goal tree in which each agent inserts its partial plans (expressed with predicates). Can then reorder actions, exchange tasks.
+\concept{Distributed SAT}: variables (goals), values (actions carried out by agents), constraints (preconditions and resources).
+\concept{Contract net}: cooperation protocol. Managers divide tasks, contractors place bids, contract is made for lowest bid (no negotiation). Tasks can be subcontracted. Market-based variation: managers increase prices until they obtain a solution.
 
 \subsection{Distributed multiagent systems}
 
