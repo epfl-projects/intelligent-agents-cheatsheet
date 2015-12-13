@@ -100,14 +100,14 @@ The \subconcept{policy iteration} optimizes over the policy directly by solving 
 \concept{Search algorithms}: DFS (too much time spent in unpromising branches), BFS (too much memory usage), Iterative Deepening (DFS + depth limit), Branch and Bound (ignore nodes with higher cost than best found so far). With adversary: minimax, $\alpha-\beta$ pruning.
 \concept{Regret}: difference in outcome between playing move $i$ and the optimal move. In games with chance, minimize expected regret or worst-case regret.
 Big / chance games: evaluate horizon states with a \subconcept{heuristic} and / or \subconcept{Monte-Carlo sampling}.
-\concept{Upper Confidence Bound} for game trees: minimax over $UCB_i = \frac{\text{wins}_i}{N_i} + c \sqrt{\frac{\log{N}}{N_i}}$ ($c$: exploration parameter).
+\concept{Upper Confidence Bound} for game trees: minimax over $UCB_i = \frac{\text{wins}_i}{N_i} + c \sqrt{\frac{\log{N}}{N_i}}$\opt{ ($c$: exploration parameter)}.
 
-\concept{Factored representation}: circumvent state space explosion by modeling state features as predicates. Use \subconcept{situation calculus}: operators transform predicates (preconditions, add-list, delete-list). \subconcept{Frame axioms} carry over predicates that were not modified.
-\subconcept{Policy} and \subconcept{reward functions} should be factored. More difficult: factoring the estimate \subconcept{value} of a state (use basis functions).
+\concept{Factored representation}:\opt{ circumvent state space explosion by modeling state features as predicates.} Use \subconcept{situation calculus}: operators transform predicates (preconditions, add-list, delete-list). \subconcept{Frame axioms} carry over predicates that were not modified.
+\subconcept{Policy} and \subconcept{reward functions} should be factored. More difficult: factoring the estimate \subconcept{value} of a state (use \subconcept{basis functions}).
 \concept{Leat-commitment principle}: delay commitment to the order in which actions are taken (modulo dependencies). Determine policy by fixpoint iteration (basis functions: solve for weights that minimize the error of the value function recurrence $\equiv$ least squares).
 \concept{Partial-order planning}: discover which actions can be carried out in parallel.
 \subconcept{GraphPlan} builds layers (time) with nodes (proposition and actions) and directed edges (in: preconditions, out: add-list). Built in polynomial time, not exhaustive but complete.
-\concept{SAT}: goal state search can be encoded as a CSP. State $=$ vector of state variables (each with a domain), add constraints for: pre and post-conditions for operators, incompatible propositions, exclusion for operators using the same resource. Time is broken up into $2n$ discreet points (states, actions).
+\concept{SAT}:\opt{ goal state search can be encoded as a CSP.} State $=$ vector of state variables (each with a domain), add constraints for: pre and post-conditions for operators, incompatible propositions, exclusion for operators using the same resource. Time is broken up into $2n$ discreet points (states, actions).
 
 % ----------
 \section{Multiagent systems}
@@ -194,10 +194,12 @@ Core is known to be nonempty for \subconcept{Superadditive} and \subconcept{Conv
 \concept{Plurality voting}: vote for your single preferred alternative (variant: carry out $n - 1$ rounds, eliminate the least preferred at each round).
 \concept{Borda count}: give $(n - 1) \dots 0$ points to alternatives.
 \concept{Slater ranking}: vote between every pair of alternatives, pick the smallest transformation to obtain a majority graph.
-\concept{Gibbard-Satterthwaite theorem}: any deterministic voting protocol ($\geq 3$ alternatives) has one of these properties: dictatorial, non-truthful, or some candidate cannot win.
+\concept{Gibbard-Satterthwaite theorem}: any deterministic voting protocol ($\geq 3$ alternatives) has one of these properties: dictatorial, non-truthful, or $\exists$ a candidate that cannot win.
 
 % ---------- Page break
-\newpage
+\ifdefined \longversion % Nothing
+\else \newpage
+\fi
 
 % ---------- Other topics
 
