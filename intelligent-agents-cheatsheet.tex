@@ -104,7 +104,7 @@ Big / chance games: evaluate horizon states with a \subconcept{heuristic} and / 
 
 \concept{Factored representation}:\opt{ circumvent state space explosion by modeling state features as predicates.} Use \subconcept{situation calculus}: operators transform predicates (preconditions, add-list, delete-list). \subconcept{Frame axioms} carry over predicates that were not modified.
 \subconcept{Policy} and \subconcept{reward functions} should be factored. More difficult: factoring the estimate \subconcept{value} of a state (use \subconcept{basis functions}).
-\concept{Leat-commitment principle}: delay commitment to the order in which actions are taken (modulo dependencies). Determine policy by fixpoint iteration (basis functions: solve for weights that minimize the error of the value function recurrence $\equiv$ least squares).
+\concept{Leat-commitment principle}: delay commitment on the order in which actions are taken (modulo dependencies). Determine policy by fixpoint iteration (basis functions: solve for weights that minimize the error of the value function recurrence $\equiv$ least squares).
 \concept{Partial-order planning}: discover which actions can be carried out in parallel.
 \subconcept{GraphPlan} builds layers (time) with nodes (proposition and actions) and directed edges (in: preconditions, out: add-list). Built in polynomial time, not exhaustive but complete.
 \concept{SAT}:\opt{ goal state search can be encoded as a CSP.} State $=$ vector of state variables (each with a domain), add constraints for: pre and post-conditions for operators, incompatible propositions, exclusion for operators using the same resource. Time is broken up into $2n$ discreet points (states, actions).
@@ -181,7 +181,7 @@ Using deliberative agents: find conflicting resource usages and similar goals.
 
 \subsection{Coalitions}
 
-\concept{Coalitions}: when \subconcept{side-contracts} (utility redistribution) are allowed, coalition utility $geq$ others $\implies$ stable.
+\concept{Coalitions}: when \subconcept{side-contracts} (utility redistribution) are allowed, coalition utility $\geq$ others $\implies$ stable.
 \concept{Core} of a game: set of payoff distributions for which the grand coalition is stable (often empty).
 Core is known to be nonempty for \subconcept{Superadditive} and \subconcept{Convex} games ($v(S \cup T) \geq v(S) + v(T) - v(S \cap T)$).
 \concept{Shapley value}: unique vector (if core is nonempty, SV payoffs is in it). $SV(a_i) = $ average value of added payoff when added that agent to a sub-coalition (over all orders). Agents not in any carrier coalitions has $SV(a_i) = 0$.
